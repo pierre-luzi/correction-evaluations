@@ -1,0 +1,38 @@
+{
+    "ANA": [
+        "Extraire les informations utiles à partir d'un document.",
+        "Extraire les informations utiles à partir d'un graphique.",
+        "Extraire les informations utiles à partir d'un schéma.",
+        "Extraire les informations utiles à partir d'un tableau.",
+        "Trier et classer les informations utiles.",
+        "Synthétiser l'information."
+    ],
+    "APP": [
+        "Interpréter des données expérimentales.",
+        "Formuler une hypothèse et proposer une méthode pour la valider.",
+        "Élaborer un protocole.",
+        "Choisir un modèle adapté pour mettre en lien les phénomènes et le langage mathématique utilisé.",
+        "Définir les conditions d'utilisation des instruments de mesure.",
+        "Régler les dispositifs expérimentaux dans les conditions de précision correspondant au protocole."
+    ],
+    "RÉA": [
+        "Réaliser ou compléter un schéma.",
+        "Réaliser un graphique.",
+        "Utiliser et résoudre des équations littérales.",
+        "Mettre en œuvre un protocole expérimental.",
+        "Réaliser une série de mesures ; relever les résultats obtenus.",
+        "Exploiter des données expérimentales en utilisant au besoin l'outil informatique ou mathématique.",
+        "Présenter le résultat d'un calcul ou d'une mesure (unité, chiffres significatifs, incertitudes)."
+    ],
+    "VAL": [
+        "Estimer l'incertitude d'une série de mesures ou d'une mesure unique.",
+        "Confronter un modèle à des résultats expérimentaux.",
+        "Avoir un regard critique sur un résultat (ordre de grandeur, chiffres significatifs)."
+    ],
+    "COM": [
+        "Communiquer à l'écrit de manière structurée, raisonnée et argumentée.",
+        "Communiquer à l'oral de manière structurée, raisonnée et argumentée.",
+        "Utiliser un vocabulaire scientifique adapté.",
+        "Utiliser des modes de représentation adaptés."
+    ]
+}
