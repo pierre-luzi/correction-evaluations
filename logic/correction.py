@@ -44,6 +44,9 @@ class Correction:
             if not erreur_id in erreurs_id:
                 models_corrections.lier_erreur(self.eleve_id, self.evaluation_id, self.question_id, erreur_id)
     
+    # def lister_erreurs(self):
+    #     return models_corrections.lister_erreurs(self.eleve_id, self.evaluation_id, self.question_id)
+    
     def ajouter_erreur(self, erreur):
         """
             Ajoute une erreur à la correction.

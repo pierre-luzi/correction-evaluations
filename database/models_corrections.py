@@ -100,3 +100,26 @@ def lister_erreurs_id(eleve_id, evaluation_id, question_id):
             (eleve_id, evaluation_id, question_id)
         ).fetchall()
         return [erreur[0] for erreur in result]
+
+def lister_erreurs(eleve_id, evaluation_id, question_id):
+    """
+        Renvoie la liste des erreurs faites par un élève pour
+        une question donnée d'une évaluation.
+        Arguments :
+            - eleve_id : identifiant de l'élève ;
+            - evaluation_id : identifiant de l'évaluation ;
+            - question_id : identifiant de la question.
+    """
+    with get_connection() as conn:
+        result = conn.execute("""
+            SELECT erreur.erreur
+            FROM erreur
+            JOIN correction_erreur
+            ON erreur.id = correction_erreur.erreur_id
+            WHERE correction_erreur.eleve_id = ?
+            AND correction_erreur.evaluation_id = ?
+            AND correction_erreur.question_id = ?
+            """,
+            (eleve_id, evaluation_id, question_id)
+        ).fetchall()
+        return [erreur[0] for erreur in result]

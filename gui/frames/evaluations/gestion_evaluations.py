@@ -4,6 +4,8 @@ from tkinter import END, DISABLED, NORMAL
 from gui.autoscrollbar import AutoScrollbar
 from logic.classe import classe
 from logic.classes_manager import ClassesManager
+from logic.corrige_evaluation import CorrigeEvaluation
+from logic.resultats import Resultats
 
 class GestionEvaluationsFrame(Frame):
     """
@@ -17,6 +19,7 @@ class GestionEvaluationsFrame(Frame):
         
         self.classe = self.master.classe
         self.evaluation = self.master.evaluation
+        self.resultats = Resultats()
         
         self.bouton_creer = Button(self, text="Créer une évaluation", command=self.creer)
         self.bouton_creer.grid(row=0, column=0, sticky="ew")
@@ -29,6 +32,14 @@ class GestionEvaluationsFrame(Frame):
         self.bouton_enregistrer = Button(self, text="Enregistrer l'évaluation", command=self.enregistrer)
         self.bouton_enregistrer.grid(row=2, column=0, sticky="ew")
         self.bouton_enregistrer.config(state=DISABLED)
+        
+        self.bouton_correction = Button(self, text="Générer le corrigé", command=self.correction)
+        self.bouton_correction.grid(row=3, column=0, sticky="ew")
+        self.bouton_correction.config(state=DISABLED)
+        
+        self.bouton_auto_correction = Button(self, text="Évaluer l'auto-correction", command=self.evaluer_auto_correction)
+        self.bouton_auto_correction.grid(row=4, column=0, sticky="ew")
+        self.bouton_auto_correction.config(state=DISABLED)
                                
     def creer(self):
         """
@@ -60,6 +71,14 @@ class GestionEvaluationsFrame(Frame):
     def enregistrer(self):
         self.event_generate("<<SaveEvaluation>>")
     
+    def correction(self):
+        corrige = CorrigeEvaluation(self.evaluation, self.classe)
+        corrige.generer_corrige()
+    
+    def evaluer_auto_correction(self):
+        self.resultats.set_evaluation(self.evaluation, self.classe)
+        self.resultats.generer()
+    
     def activer_creation(self):
         self.bouton_creer.config(state=NORMAL)
     
@@ -77,3 +96,15 @@ class GestionEvaluationsFrame(Frame):
     
     def desactiver_enregistrer(self):
         self.bouton_enregistrer.config(state=DISABLED)
+    
+    def activer_correction(self):
+        self.bouton_correction.config(state=NORMAL)
+    
+    def desactiver_correction(self):
+        self.bouton_correction.config(state=DISABLED)
+    
+    def activer_auto_correction(self):
+        self.bouton_auto_correction.config(state=NORMAL)
+    
+    def desactiver_auto_correction(self):
+        self.bouton_auto_correction.config(state=DISABLED)

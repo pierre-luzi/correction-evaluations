@@ -39,7 +39,7 @@ class Exercice:
         """
             Renvoie la liste des questions de l'exercice.
             Chaque question est sous la forme d'un tuple :
-            (numero, réponse, barême)
+            (numero, réponseA, réponseB, barême)
         """
         questions = []
         request = models_exercices.get_questions(self.id)

@@ -1,4 +1,5 @@
-from tkinter import Frame, Button, Canvas, Label
+from tkinter import Frame, Button, Canvas, Label, Text
+from tkinter import font
 from tkinter import BOTH, LEFT, RIGHT, END, X, Y, DISABLED, NORMAL
 from gui.autoscrollbar import AutoScrollbar
 from gui.frames.correction.correction_exercice import CorrectionExerciceFrame
@@ -75,7 +76,13 @@ class CorrectionFrame(Frame):
         frame_competences = CorrectionCompetencesFrame(self.frame_correction, self)
         frame_competences.grid(row=i, column=0, padx=10, pady=10, sticky="ew")
         self.liste_frames_correction.append(frame_competences)
-    
+        
+        # commentaire sur l'évaluation
+        label_commentaire = Label(self.frame_correction, text="Commentaire global")
+        label_commentaire.grid(row=i+1, column=0, padx=10, pady=10, sticky="w")
+        commentaire = Text(self.frame_correction, height=5, font=font.Font(size=14), wrap="word")
+        commentaire.grid(row=i+2, column=0, padx=5, pady=0, sticky="nsew")
+        
     def enregistrer(self):
         for frame in self.liste_frames_correction:
             frame.enregistrer()

@@ -71,6 +71,16 @@ def init_db():
         )
         """)
         
+        # Création de la table des commentaires
+        cursor.execute("""
+        CREATE TABLE IF NOT EXISTS commentaire (
+            eleve_id INTEGER NOT NULL,
+            evaluation_id INTEGER NOT NULL,
+            commentaire TEXT,
+            PRIMARY KEY (eleve_id, evaluation_id)
+        )
+        """)
+        
         # Création de la table de correction
         cursor.execute("""
         CREATE TABLE IF NOT EXISTS correction (
